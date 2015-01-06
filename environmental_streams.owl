@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY cube "http://purl.org/linked-data/cube#" >
+    <!ENTITY ssn "http://purl.oclc.org/NET/ssnx/ssn#" >
+    <!ENTITY geo "http://www.opengis.net/ont/geosparql#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY sweet-phen "http://sweet.jpl.nasa.gov/2.3/phen.owl#" >
+    <!ENTITY sweet-prop "http://sweet.jpl.nasa.gov/2.3/prop.owl#" >
+    <!ENTITY sweet-matr "http://sweet.jpl.nasa.gov/2.3/matr.owl#" >
+    <!ENTITY sweet-screla "http://sweet.jpl.nasa.gov/2.3/relaSci.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sweet-unit "http://sweet.jpl.nasa.gov/2.3/reprSciUnits.owl#" >
+    <!ENTITY sweet-quan "http://sweet.jpl.nasa.gov/2.3/propQuantity.owl#" >
+    <!ENTITY ei "http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/" >
+    <!ENTITY dul "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#" >
+	<!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+	<!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY sweet-human "http://sweet.jpl.nasa.gov/2.3/humanTransportation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/"
+     xml:base="http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/"
+     xmlns:sweet-prop="http://sweet.jpl.nasa.gov/2.3/prop.owl#"
+     xmlns:geo="http://www.opengis.net/ont/geosparql#"
+     xmlns:sweet-screla="http://sweet.jpl.nasa.gov/2.3/relaSci.owl#"
+     xmlns:ssn="http://purl.oclc.org/NET/ssnx/ssn#"
+     xmlns:sweet-quan="http://sweet.jpl.nasa.gov/2.3/propQuantity.owl#"
+     xmlns:sweet-human="http://sweet.jpl.nasa.gov/2.3/humanTransportation.owl#"
+     xmlns:sweet-unit="http://sweet.jpl.nasa.gov/2.3/reprSciUnits.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:ei="http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:sweet-phen="http://sweet.jpl.nasa.gov/2.3/phen.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:cube="http://purl.org/linked-data/cube#"
+	 xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:sweet-matr="http://sweet.jpl.nasa.gov/2.3/matr.owl#"
+	 xmlns:dc="http://purl.org/dc/elements/1.1/">
+	 
+	 
+    <owl:Ontology rdf:about="http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/">
+        <owl:versionIRI rdf:resource="&ei;0.1"/>
+		<dc:title>Environmental Streams Vocabulary</dc:title>
+		<dc:description>OWL/RDFS vocabulary to model environmental data streams. Heavily based on reuse of the following ontologies: Semantic Sensor Network Ontology (SSNO), RDF Data Cube Vocabulary, Time Ontology, GeoSPARQL Ontology, Semantic Web for Earth and Environmental Terminology (SWEET), and Quantities, Units, Dimensions and Data Types Ontologies (QUDT).</dc:description>
+	    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-01-05</dc:modified>
+        <owl:imports rdf:resource="http://purl.oclc.org/NET/ssnx/ssn"/>
+        <owl:imports rdf:resource="http://purl.org/linked-data/cube"/>
+    </owl:Ontology>
+	
+	<foaf:Person rdf:about="&ei;pwetz">
+		<foaf:name>Peter Wetz</foaf:name>
+		<foaf:homepage></foaf:homepage>
+		<foaf:mbox rdf:resource="mailto:peter.wetz@tuwien.ac.at"/>
+	</foaf:Person>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#observationResultTime -->
+
+    <rdf:Description rdf:about="&ssn;observationResultTime">
+        <rdfs:domain rdf:resource="&ei;Observation"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#observedProperty -->
+
+    <rdf:Description rdf:about="&ssn;observedProperty">
+        <rdfs:domain rdf:resource="&ei;Observation"/>
+        <rdfs:range rdf:resource="&sweet-prop;Property"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#observes -->
+
+    <rdf:Description rdf:about="&ssn;observes">
+        <rdfs:domain rdf:resource="&ei;Observation"/>
+        <rdfs:range rdf:resource="&sweet-prop;Property"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/relaSci.owl#hasUnit -->
+
+    <owl:ObjectProperty rdf:about="&sweet-screla;hasUnit">
+        <rdfs:domain rdf:resource="&sweet-quan;Quantity"/>
+        <rdfs:range rdf:resource="&sweet-unit;Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="&geo;hasGeometry">
+        <rdfs:comment>used to connect ssn:Sensor with geo:Point</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt#numericValue -->
+
+    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt#numericValue">
+        <rdfs:label rdf:datatype="&xsd;string">numeric value</rdfs:label>
+        <rdfs:domain rdf:resource="&ssn;ObservationValue"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#inXSDDateTime -->
+
+    <owl:DatatypeProperty rdf:about="&time;inXSDDateTime">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="&time;Instant"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <owl:Class rdf:about="&geo;Geometry">
+    </owl:Class>
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/DataStream -->
+
+    <owl:Class rdf:about="&ei;DataStream">
+        <rdfs:subClassOf rdf:resource="&cube;DataSet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/Observation -->
+
+    <owl:Class rdf:about="&ei;Observation">
+        <rdfs:subClassOf rdf:resource="&ssn;Observation"/>
+        <rdfs:subClassOf rdf:resource="&cube;Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/ObservationValue -->
+
+    <owl:Class rdf:about="&ei;ObservationValue">
+        <rdfs:subClassOf rdf:resource="&ssn;ObservationValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/Output -->
+
+    <owl:Class rdf:about="&ei;Output">
+        <rdfs:subClassOf rdf:resource="&ssn;SensorOutput"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/Sensor -->
+
+    <owl:Class rdf:about="&ei;Sensor">
+        <rdfs:subClassOf rdf:resource="&ssn;Sensor"/>
+        <rdfs:subClassOf rdf:resource="&dul;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Property -->
+
+    <rdf:Description rdf:about="&ssn;Property">
+        <rdfs:subClassOf rdf:resource="&dul;Entity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/humanTransportation.owl#HumanActivity -->
+
+    <owl:Class rdf:about="&sweet-human;HumanActivity">
+        <rdfs:subClassOf rdf:resource="&ssn;FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance -->
+
+    <owl:Class rdf:about="&sweet-matr;Substance">
+        <rdfs:subClassOf rdf:resource="&ssn;FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/phen.owl#Phenomena -->
+
+    <owl:Class rdf:about="&sweet-phen;Phenomena">
+        <rdfs:subClassOf rdf:resource="&ssn;FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/prop.owl#Property -->
+
+    <owl:Class rdf:about="&sweet-prop;Property">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
+        <rdfs:comment>observed property of the feature: temperature, speed, pressure, height, angle, direction, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/propQuantity.owl#Quantity -->
+
+    <owl:Class rdf:about="&sweet-quan;Quantity"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/reprSciUnits.owl#Unit -->
+
+    <owl:Class rdf:about="&sweet-unit;Unit"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept -->
+
+    <owl:Class rdf:about="&dul;Concept"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
+
+    <owl:Class rdf:about="&dul;Entity"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="&time;Instant"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.8) http://owlapi.sourceforge.net -->
+
