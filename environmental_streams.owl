@@ -96,7 +96,7 @@
     <!-- http://purl.oclc.org/NET/ssnx/ssn#observes -->
 
     <rdf:Description rdf:about="&ssn;observes">
-        <rdfs:domain rdf:resource="&ei;Observation"/>
+        <rdfs:domain rdf:resource="&ei;Sensor"/>
         <rdfs:range rdf:resource="&sweet-prop;Property"/>
     </rdf:Description>
     
