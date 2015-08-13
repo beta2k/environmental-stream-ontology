@@ -282,6 +282,35 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
         <rdfs:comment>observed property of the feature: temperature, speed, pressure, height, angle, direction, etc.</rdfs:comment>
     </owl:Class>
     
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/FreeBikes -->
+
+    <owl:Class rdf:about="&ei;FreeBikes">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
+        <rdfs:comment>Property representing free bikes</rdfs:comment>
+    </owl:Class>
+    
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/FreeBoxes -->
+
+    <owl:Class rdf:about="&ei;FreeBoxes">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
+        <rdfs:comment>Property representing free boxes</rdfs:comment>
+    </owl:Class>
+    
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/AvailableBoxes -->
+
+    <owl:Class rdf:about="&ei;AvailableBoxes">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
+        <rdfs:comment>Property representing available boxes</rdfs:comment>
+    </owl:Class>
+    
+    
+    <!-- http://ldlab.ifs.tuwien.ac.at/envstreams/ontology/BikeStation -->
+
+    <owl:Class rdf:about="&ei;BikeStation">
+        <rdfs:subClassOf rdf:resource="&ssn;FeatureOfInterest"/>
+        <rdfs:comment>Feature representing a bike station</rdfs:comment>
+    </owl:Class>
+    
 
 
     <!-- http://sweet.jpl.nasa.gov/2.3/propQuantity.owl#Quantity -->
